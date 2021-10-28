@@ -21,7 +21,7 @@
     "gh-pages": "^3.2.3"
   },
   "scripts": {
-    "server": "node server/index.js --ignore client",
+    "server": "node index.js --ignore client",
     "test": "react-scripts test",
     "deploy": "gh-pages -d build",
     "start": "cd client && npm start",
