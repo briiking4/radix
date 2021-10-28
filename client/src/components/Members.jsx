@@ -27,7 +27,7 @@ class Members extends React.Component {
   }
 
   async componentWillMount(){
-    let r = await fetch('/api');
+    let r = await fetch('https://radixlmu.herokuapp.com/');
     let message = await r.json();
     this.setState({members: message.members});
     console.log(this.state.members);
