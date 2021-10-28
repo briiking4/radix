@@ -1,5 +1,5 @@
 {
-  "homepage":"http://briiking4.github.io/Radix",
+  "homepage":"http://briiking4.github.io/radix",
   "name": "radix",
   "version": "0.1.0",
   "private": true,
@@ -43,5 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000/"
 }

@@ -14,21 +14,21 @@ function Merch() {
 
         <div className="row justify-content-center mt-3">
 
-          <div className="col col-sm-4 col-lg-3 merch-card">
+          <div className="col col-sm-4 col-lg-4 merch-card">
              <div className="card-body">
              <img src={pinkHoddie} className="merch-img" alt="Pink Sakura Hoodie"/>
               <h5 className="card-title roster-name">Pink Sakura Hoodie</h5>
              </div>
           </div>
 
-          <div className="col col-sm-4 col-lg-3 merch-card">
+          <div className="col col-sm-4 col-lg-4 merch-card">
             <div className="card-body">
               <img src={blackHoddie} className="merch-img" alt="Black Sakura Hoodie"/>
               <h5 className="card-title roster-name">Black Sakura Hoodie</h5>
             </div>
           </div>
 
-          <div className="col col-sm-4 col-lg-3 merch-card ">
+          <div className="col col-sm-4 col-lg-4 merch-card ">
             <div className="card-body">
               <img src={tanHoddie} className="merch-img" alt="Tan Lavender Hoodie"/>
               <h5 className="card-title roster-name">Tan Lavender Hoodie</h5>
