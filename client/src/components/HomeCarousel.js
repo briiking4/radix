@@ -35,9 +35,9 @@ import carousel01 from "./assets/imgs/carousel/forthenight.mov";
 
 
   return (
-      <Carousel id="HomeCarousel" className="mx-auto carousel" activeIndex={index} onSelect={handleSelect}>
+      <Carousel id="HomeCarousel" className="mx-auto carousel" activeIndex={index} onSelect={handleSelect} nextLabel="null">
         <Carousel.Item className="carousel-item" interval={20000}>
-          <video class="video-fluid w-100 carousel-img audio-element" autoplay="autoplay" loop muted>
+          <video class="video-fluid w-100 carousel-img audio-element" autoPlay="autoplay" loop muted>
             <source src={carousel01} type="video/mp4" />
           </video>
         <Carousel.Caption className="carousel-caption text-left d-sm-block d-md-block">
@@ -57,7 +57,7 @@ import carousel01 from "./assets/imgs/carousel/forthenight.mov";
         </Carousel.Item>
 
         <Carousel.Item className="carousel-item" interval={20000}>
-            <video class="video-fluid w-100 carousel-img audio-element" autoplay="autoplay" loop muted>
+            <video class="video-fluid w-100 carousel-img audio-element" autoPlay="autoplay" loop muted>
               <source src={carousel03} type="video/mp4" />
             </video>
           <Carousel.Caption className="carousel-caption text-left d-sm-block d-md-block">

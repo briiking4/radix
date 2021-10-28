@@ -37,7 +37,7 @@ class Events extends React.Component {
       this.state.events.map(function(event){
         return (
             <div className="col-3 card">
-              <img className="event-img" src={event1} alt="Card image cap"/>
+              <img className="event-img" src={event1} alt="Card image cap" loading="lazy"/>
               <h6 className="roster-name">{event.event_title}</h6>
               <small className="text-light-gray ">{event.event_subtitle}</small>
               <small className="text-light-gray ">{event.event_date}</small>

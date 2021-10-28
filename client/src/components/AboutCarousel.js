@@ -19,6 +19,7 @@ function AboutCarousel() {
             className="d-block w-100 carousel-img"
             src='https://drive.google.com/uc?export=view&id=1AlB-LAcu8iJNqy2F1VSbqc6ExaELv3Sr'
             alt="First slide"
+            loading="lazy"
           />
           <Carousel.Caption className="carousel-caption caption-top d-sm-block d-md-block">
               <h1 class="font-weight-bold text-resp-4 text-pink">RADIX DANCE CREW</h1>
@@ -39,6 +40,7 @@ function AboutCarousel() {
             className="d-block w-100"
             src='https://drive.google.com/uc?export=view&id=1YY3-ZGKucp29LrXWbSEi3uxsKa8A8llj'
             alt="2nd slide"
+            loading="lazy"
           />
 
         </Carousel.Item>
@@ -48,6 +50,7 @@ function AboutCarousel() {
           className="d-block w-100"
           src='https://drive.google.com/uc?export=view&id=1HiO97JqU6K7m0gwp6jNy2MKRHFUSSkHf'
           alt="2nd slide"
+          loading="lazy"
         />
         </Carousel.Item>
       </Carousel>

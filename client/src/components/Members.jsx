@@ -84,7 +84,7 @@ class Members extends React.Component {
         if(member.category == 'eboard'){
           return (
               <div className="col-sm-6 col-md-4 col-lg-3 col-6 merch-card ">
-                 <img src={ariana} className="mem-img" alt="card"/>
+                 <img src={ariana} className="mem-img" alt="card" loading="lazy"/>
                 <div className="row justify-content-center">
                   <h5 className="roster-name">{member.name}</h5>
                   <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-white"></i></a>
