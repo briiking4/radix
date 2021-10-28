@@ -1,0 +1,276 @@
+body {
+  background-color: #131313;
+  color:white;
+  font-family: 'Noto Sans Mono', monospace;
+  overflow-x: hidden;
+
+}
+
+.page-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mt-6,
+.my-6 {
+  margin-top: 5rem !important;
+}
+
+.pos-bottom{
+  position:absolute;
+  bottom:0;
+}
+
+.text-brown{
+  color:#381f0b
+}
+
+.text-pink{
+  color:#cb8ea6;
+}
+
+.text-resp-1{
+  font-size:1.5vw;
+}
+
+.text-resp-2{
+  font-size:2vw;
+}
+
+.text-resp-4{
+  font-size:4vw;
+}
+
+.text-resp-5{
+  font-size:5vw;
+}
+
+.text-gold{
+  color:#d5a95a;
+}
+.text-light-gray{
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text-black{
+  color:#141414;
+}
+
+.text-dred{
+  color:#8a0304 !important;
+}
+
+.bg-black{
+  background-color: #000000 !important;
+
+}
+
+.bg-dark-red{
+  background-color: #8a0304 !important;
+}
+
+.bg-red{
+  background-color: #c01820 !important;
+}
+
+.bg-none{
+  background-color: transparent !important;
+
+}
+
+.flip-horiz {
+  transform: scaleX(-1);
+}
+
+.img-object-center{
+  object-position: center;
+}
+
+.navbar {
+    position: absolute;
+    padding-top:30px;
+    background: rgba(0,0,0,0.7);
+}
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+  color: #e49fba;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #e49fba;
+}
+
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 2rem;
+      padding-left: 2rem;
+  }
+}
+
+@media (min-width: 768px){
+  .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 1rem;
+      padding-left: 1rem;
+  }
+}
+
+ /* #HomeCarousel .carousel-indicators li{
+  width:100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color:#e49fba;
+  padding-top:14%;
+} */
+
+/* #HomeCarousel .carousel-indicators{
+  bottom:-2%;
+  margin-left:35%;
+  margin-right:35%;
+} */
+
+
+/* .carousel{
+  width:85%;
+  background: none repeat scroll 0 0 #0B0D0C;
+  padding:10px;
+  margin-top:35px;
+  margin-right:auto;
+  margin-left:auto;
+} */
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-60px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-60px); }
+}
+
+
+
+#HomeCarousel .carousel-item{
+  height: 100vh;
+  min-height: 350px;
+  overflow: hidden;
+  background: no-repeat top center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#HomeCarousel .carousel-img{
+  opacity:0.8;
+  background-color: #131313;
+  min-height:100%;
+}
+
+.carousel-caption{
+  right:5%;
+  left:5%;
+  bottom:-2%;
+}
+.caption-top{
+  top:30px;
+}
+
+ #HomeCarousel @media(max-width:768px ){
+   .carousel-control-next-icon, .carousel-control-prev-icon{
+       height:30%;
+   }
+  .carousel-img{
+    height:100%;
+  }
+
+}
+
+#square {
+  width: 10%;
+  padding-bottom:10%;
+}
+
+#rotate:hover {
+  animation: rotation 7s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+.page-container{
+  margin-top:140px;
+}
+.roster-cat{
+  margin-top:2rem;
+
+}
+.merch-img{
+  height:100%;
+  width:100%;
+  border:5px solid #ca90a5;
+  border-radius: 25px;
+}
+
+.merch-card{
+  position:relative;
+  margin-left:20px;
+  margin-right:20px;
+}
+
+.card-img {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.card:hover .card-img {
+  opacity: .3;
+}
+
+.card:hover .card-button {
+  opacity: 1;
+}
+
+.card {
+    background-color: #131313;
+    border-color: #131313;
+    overflow: hidden;
+    position:relative;
+}
+
+.prof-pic{
+  width:70%;
+}
+
+.bg-none{
+  background-color:transparent;
+}
+
+.border-none{
+  border:transparent;
+}
+
+.roster-name{
+  margin-top:10px;
+  color:#d5a95a;
+  font-weight:700;
+}
