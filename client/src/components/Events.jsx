@@ -24,7 +24,7 @@ class Events extends React.Component {
 
 
   async componentWillMount(){
-    let r = await fetch('https://radixlmu.herokuapp.com/api');
+    let r = await fetch('/api');
     let message = await r.json();
     this.setState({events: message.events});
     console.log(this.state.events);
