@@ -17,10 +17,6 @@ const db = mysql.createPool({
 
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
-app.get('*', (req, res) => {
-res.sendFile(path.join(__dirname + './client/build/index.html'))
-});
-
 var members;
 var events;
 function setMembersValue(value) {
