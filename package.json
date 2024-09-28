@@ -1,5 +1,5 @@
 {
-  "homepage":"https://radix-9544c.firebaseapp.com/",
+  "homepage": "https://radix-9544c.firebaseapp.com/",
   "name": "radix",
   "version": "1.0.0",
   "description": "",
@@ -29,9 +29,9 @@
   "scripts": {
     "server": "node index.js --ignore client",
     "test": "react-scripts test",
-    "start": "cd client && npm start",
-    "build": "cd client && npm run build",
-    "deploy": "cd client && npm run build && firebase deploy",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "npm run build && firebase deploy",
     "eject": "react-scripts eject"
   },
   "repository": {
@@ -43,5 +43,17 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/briiking4/radix/issues"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
