@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import './Events.css';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from 'react-loader-spinner'
-import event1 from './assets/imgs/events/jade.png'
-import event2 from './assets/imgs/events/milan.png'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
+import {db} from "../firebase/config";
+
 
 
 
@@ -23,11 +23,18 @@ class Events extends React.Component {
 
 
 
-  async componentWillMount(){
-    let r = await fetch('/api');
-    let message = await r.json();
-    this.setState({events: message.events});
-    console.log(this.state.events);
+  componentDidMount(){
+    const getEventsFromFirebase = [];
+    const event = db.collection("events").onSnapshot((querySnapshot) =>{
+      querySnapshot.forEach((doc) => {
+        getEventsFromFirebase.push({
+          ...doc.data(),
+          key: doc.id,
+
+        });
+        this.setState({events: getEventsFromFirebase});
+      });
+    });
   }
 
 
@@ -36,12 +43,12 @@ class Events extends React.Component {
     const showEvents =
       this.state.events.map(function(event){
         return (
-            <div className="col-3 card">
-              <img className="event-img" src={event1} alt="Card image cap" loading="lazy"/>
+            <div className="col-8 col-md-3 card">
+              <img className="event-img" src={event.image} width="250" height="400" alt="Card image cap" loading="lazy"/>
               <h6 className="roster-name">{event.event_title}</h6>
-              <small className="text-light-gray ">{event.event_subtitle}</small>
-              <small className="text-light-gray ">{event.event_date}</small>
-              <small className="text-light-gray ">{event.event_time}</small>
+              <small>{event.event_subtitle}</small>
+              <small>{event.event_date}</small>
+              <small>{event.event_time}</small>
 
               <a href="#"><i class="fas fa-2x fa-arrow-right m-1 text-success text-resp-1"></i></a>
 

@@ -3,6 +3,7 @@
   max-width: 1450px;
   margin-right:20px;
   margin-left:20px;
+  overflow-x: hidden;
 }
 /* #aboutCarousel .carousel-inner{
   overflow-y:scroll;
@@ -41,27 +42,39 @@ background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='f
   margin-left:auto;
 }
 #aboutCarousel .carousel-item{
+  width:100%;
   height: 70vh;
   min-height: 350px;
   overflow: hidden;
-  background: no-repeat top center scroll;
+  background: no-repeat center center scroll;
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
 }
 
 #aboutCarousel .carousel-inner{
-  width:100%;
   background: none repeat scroll 0 0 black;
   padding:10px;
   margin-top:35px;
-  margin-right:auto;
-  margin-left:auto;
+  border-radius: 0.25rem!important;
 }
 
 #aboutCarousel .carousel-img{
+  width:100%;
+  height:auto;
   opacity:0.4;
-  background-color: #131313;
-  min-height:100%;
 }
+
+@media only screen
+  and (min-width: 320px)
+  and (max-width: 480px){
+    .sakura{
+      display:none;
+    }
+    .about-c{
+      margin-top:15%;
+      max-width: 100% !important;
+      flex:1;
+    }
+  }

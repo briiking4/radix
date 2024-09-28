@@ -6,8 +6,8 @@
 
 
 .card{
-  background-color: #131313;
-  border-color: #131313;
+  background-color: transparent;
+  border-color: transparent;
   overflow:hidden;
   position: relative;
 }

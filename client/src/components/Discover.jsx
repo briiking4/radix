@@ -14,13 +14,11 @@ class Discover extends React.Component {
 
     this.state = {
       youtubeOn:true,
-      instaOn: false,
       youtubeLink: [],
       loading: true
     }
 
     this.handleYoutubeOn = this.handleYoutubeOn.bind(this);
-    this.handleInstaOn = this.handleInstaOn.bind(this);
     this.hideLoader = this.hideLoader.bind(this);
     this.getYoutubeUrl = this.getYoutubeUrl.bind(this);
 
@@ -70,21 +68,6 @@ class Discover extends React.Component {
 
   }
 
-  handleInstaOn(){
-    this.setState({
-      youtubeOn: false,
-      instaOn: true,
-    });
-  }
-
-  handleSoundcloudOn(){
-    this.setState({
-      youtubeOn: false,
-      instaOn: false,
-    });
-  }
-
-
 
 
   render(){
@@ -103,16 +86,11 @@ class Discover extends React.Component {
     return (
         <div className="container-fluid justify-content-center text-center page-container">
             <h1 className="text-resp-3 font-weight-bold text-center text-pink">DISCOVER</h1>
-          <div className="row justify-content-center text-center pt-5 mx-auto">
+          <div className="row justify-content-center text-center mt-4 mx-auto">
 
             <div className="col-3 m-3" >
               <h2 className={this.state.youtubeOn ? `media-cat roster-active` : "member-cat"} onClick={this.handleYoutubeOn}>
                 <img className="mb-2" src={yt_logo} style= {{width:"35%"}}/>
-              </h2>
-            </div>
-            <div className="col-3 m-3">
-              <h2 className={this.state.instaOn ? `media-cat roster-active` : "member-cat"} onClick={this.handleInstaOn}>
-                <img className="mb-2 img-fluid" src={insta_logo} style= {{width:"25%"}}/>
               </h2>
             </div>
 
@@ -123,21 +101,7 @@ class Discover extends React.Component {
                 :
                 <div></div>
               }
-              {this.state.instaOn ?
-                <div className="mx-auto mt-3 embed-responsive ">
-                  {this.state.loading? (
-                    <Loader className="text-center mt-5"
-                       type="Oval"
-                       color="pink"
-                       height={100}
-                       width={100}
-                     />
-                  ) : null}
-                    <iframe className="embed-responsive rounded" onLoad={this.hideLoader} width="750" height="400" src="https://open.insta.com/embed/playlist/4KNVe1iJs7k8zNsmFpIwjb" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                </div>
-                :
-                <div></div>
-              }
+
 
             </div>
 

@@ -9,7 +9,7 @@ function Navigation(props) {
     const { location } = props;
   return (
     <Navbar className="navbar navbar-dark fixed-top" expand="lg">
-      <Navbar.Brand to="/"> <img id="rotate" src={logo1} width="95"/></Navbar.Brand>
+      <Navbar.Brand to="/"> <img id="rotate" src={logo1} width="95" className="mt-n3"/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -42,6 +42,7 @@ function Navigation(props) {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+
   );
 }
 

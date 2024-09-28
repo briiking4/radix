@@ -3,8 +3,8 @@
 }
 
 .card{
-  background-color: #131313;
-  border-color: #131313;
+  background-color: transparent;
+  border-color: transparent;
   overflow:hidden;
   position: relative;
 }
@@ -40,6 +40,8 @@
   width: 100%;
   border:5px solid #ca90a5;
   border-radius: 25px;
+  max-height:350px;
+  object-fit:cover;
 }
 
 .roster-active{

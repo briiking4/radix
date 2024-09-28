@@ -1,11 +1,8 @@
 import React from "react";
-import { Component } from 'react';
 import './Members.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
-import ariana from './assets/imgs/roster/bkelly.png'
-
-
+import {db} from "../firebase/config";
 
 
 class Members extends React.Component {
@@ -17,7 +14,7 @@ class Members extends React.Component {
       boardOn:true,
       prodOn: false,
       dancerOn: false,
-      members: []
+      members: null
     }
 
     this.handleBoardOn = this.handleBoardOn.bind(this);
@@ -26,11 +23,20 @@ class Members extends React.Component {
 
   }
 
-  async componentWillMount(){
-    let r = await fetch('/api');
-    let message = await r.json();
-    this.setState({members: message.members});
-    console.log(this.state.members);
+
+
+ componentDidMount(){
+    const getMembersFromFirebase = [];
+    const member = db.collection("members").onSnapshot((querySnapshot) =>{
+      querySnapshot.forEach((doc) => {
+        getMembersFromFirebase.push({
+          ...doc.data(),
+          key: doc.id,
+
+        });
+        this.setState({members: getMembersFromFirebase});
+      });
+    });
   }
 
   handleBoardOn(){
@@ -62,32 +68,15 @@ class Members extends React.Component {
 
   render(){
 
-    // const showMembers = () =>
-    //   this.state.members.map(function(member){
-    //     return (
-    //         <div className="col-sm-6 col-md-4 col-lg-3 col-12 card ">
-    //            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1202219229.jpg?crop=0.868xw:0.655xh;0.120xw,0.00917xh&resize=640:*" className="card-img card-img-top" alt="card"/>
-    //             <h5 className="roster-name">{member.name}</h5>
-    //
-    //           <div className="row" style={{paddingLeft:"10px"}}>
-    //             <a href={`https://www.instagram.com/${member.instagram}`} ><i className="fab fa-instagram m-1 text-white"></i></a>
-    //             <a href="#"><i className="fab fa-spotify m-1 text-white"></i></a>
-    //             <a href="#"><i className="fab fa-youtube m-1 text-white"></i></a>
-    //           </div>
-    //
-    //         </div>
-    //       );
-    //   });
-
     const showBoard = () =>
       this.state.members.map(function(member){
         if(member.category == 'eboard'){
           return (
-              <div className="col-sm-6 col-md-4 col-lg-3 col-6 merch-card ">
-                 <img src={ariana} className="mem-img" alt="card" loading="lazy"/>
+              <div className="col-8 col-md-4 col-lg-3 col-6 merch-card ">
+                 <img src={member.picture} className="mem-img" width="250" height="350" alt="card" loading="lazy"/>
                 <div className="row justify-content-center">
                   <h5 className="roster-name">{member.name}</h5>
-                  <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-white"></i></a>
+                  <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-pink"></i></a>
                 </div>
                 <p className="font-italic text-center">{member.role}</p>
               </div>
@@ -100,11 +89,11 @@ class Members extends React.Component {
         this.state.members.map(function(member){
           if(member.category == 'dancer'){
             return (
-              <div className="col-sm-6 col-md-4 col-lg-3 col-6 merch-card ">
-                 <img src={ariana} className="mem-img" alt="card"/>
+              <div className="col-8 col-md-4 col-lg-3 col-6 merch-card ">
+                 <img src={member.picture} className="mem-img" width="250" height="350" alt="card" loading="lazy"/>
                 <div className="row justify-content-center">
                   <h5 className="roster-name">{member.name}</h5>
-                  <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-white"></i></a>
+                  <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-pink"></i></a>
                 </div>
                 <p className="font-italic text-center">{member.year}</p>
               </div>
@@ -117,11 +106,11 @@ class Members extends React.Component {
           this.state.members.map(function(member){
             if(member.category == 'production'){
               return (
-                <div className="col-sm-6 col-md-4 col-lg-3 col-6 merch-card ">
-                   <img src={ariana} className="mem-img" alt="card"/>
+                <div className="col-8 col-md-4 col-lg-3 col-6 merch-card ">
+                   <img src={member.picture} className="mem-img" width="250" height="350" alt="card" loading="lazy"/>
                   <div className="row justify-content-center">
                     <h5 className="roster-name">{member.name}</h5>
-                    <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-white"></i></a>
+                    <a href={`https://www.instagram.com/${member.instagram}`} ><i className="ml-3 mt-3 fab fa-instagram text-pink"></i></a>
                   </div>
                   <p className="font-italic text-center">{member.year}</p>
                 </div>
@@ -135,14 +124,13 @@ class Members extends React.Component {
         <div className="row justify-content-center pt-3 pl-3">
 
           <h2 className={this.state.boardOn ? `mx-5 member-cat roster-active` : "mx-5 member-cat"} onClick={this.handleBoardOn}>E-BOARD</h2>
-          <h2 className={this.state.prodOn ? `mx-5 member-cat roster-active` : "mx-5 member-cat"} onClick={this.handleProdOn}>PRODUCTION</h2>
           <h2 className={this.state.dancerOn ? `mx-5 member-cat roster-active` : "mx-5 member-cat"} onClick={this.handleDancerOn}>DANCERS</h2>
 
         </div>
         <div>
 
           {
-            this.state.members.length == 0 ?
+            !this.state.members ?
               <Loader className="text-center mt-5"
                  type="Oval"
                  color="pink"
@@ -157,11 +145,7 @@ class Members extends React.Component {
                 :
                 <div></div>
               }
-              {this.state.prodOn ?
-                showProd()
-                :
-                <div></div>
-              }
+
               {this.state.dancerOn ?
                 showDancers()
                 :
