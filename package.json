@@ -1,10 +1,13 @@
 {
-  "homepage": "https://radixlmu.herokuapp.com/",
+  "homepage":"https://radix-9544c.firebaseapp.com/",
   "name": "radix",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
     "express": "^4.17.1",
     "firebase": "^10.13.2",
     "mysql": "^2.18.1",
@@ -26,10 +29,9 @@
   "scripts": {
     "server": "node index.js --ignore client",
     "test": "react-scripts test",
-    "deploy": "gh-pages -d build",
     "start": "cd client && npm start",
-    "build:client": "cd client && npm run build",
-    "startboth": "npm run server && npm run client",
+    "build": "cd client && npm run build",
+    "deploy": "cd client && npm run build && firebase deploy",
     "eject": "react-scripts eject"
   },
   "repository": {
